@@ -1,14 +1,18 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  argocd-app-health:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Check application status
     steps:
     - uses: actions/checkout@v2
     - id: foo
-      uses: samsongudise/hello-world-composite-run-steps-action@v2
+      uses: samsongudise/argocd-app-healthcheck@v1
       with:
-        who-to-greet: 'Samson the developer'
+        application: 'cluster-autoscaler'
+        servername: 'argocd.dev.clearbit.io'
+        version: 1.0
+        username: ${{ secrets.ARGOCD_USERNAME }}
+        password: ${{ secrets.ARGOCD_PASSWORD }}
     - run: echo random-number ${{ steps.foo.outputs.random-number }} 
       shell: bash
