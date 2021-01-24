@@ -7,12 +7,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: foo
-      uses: samsongudise/argocd-app-healthcheck@v2
+      uses: samsongudise/argocd-app-healthcheck@v4
       with:
         application: 'cluster-autoscaler'
         servername: 'argocd.dev.clearbit.io'
         version: 1.0
         username: ${{ secrets.ARGOCD_USERNAME }}
         password: ${{ secrets.ARGOCD_PASSWORD }}
-    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
+    - run: echo random-number ${{ steps.foo.outputs.HealthStatus }} 
       shell: bash
