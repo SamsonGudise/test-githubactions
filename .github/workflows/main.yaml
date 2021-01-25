@@ -11,7 +11,7 @@ jobs:
       with:
         application: 'cluster-autoscaler'
         servername: 'argocd.dev.clearbit.io'
-        version: 1.0
+        revision: 'f56e2200dfe6b322bce9020351d24e0865e5fba'
         username: ${{ secrets.ARGOCD_USERNAME }}
         password: ${{ secrets.ARGOCD_PASSWORD }}
     - run: echo HealthStatus ${{ steps.foo.outputs.HealthStatus }} 
