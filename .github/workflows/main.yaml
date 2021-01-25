@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - id: foo
-      uses: samsongudise/argocd-app-healthcheck@v12
+      uses: samsongudise/argocd-app-healthcheck@v13
       with:
         application: 'cluster-autoscaler'
         servername: 'argocd.dev.clearbit.io'
